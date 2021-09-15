@@ -81,7 +81,13 @@ function LoginPage(props) {
           </Link>
         </FollowingButton>
       </Wrapper>
-      <Mainboard pins={pins} />
+      <TitleWrapper>
+        Get your next
+        <Content>chai time snacks idea</Content>
+      </TitleWrapper>
+      <BodyWrapper>
+        <Mainboard pins={pins} />
+      </BodyWrapper>
     </>
   );
 }
@@ -95,7 +101,34 @@ const Wrapper = styled.div`
   background-color: white;
   color: black;
 `;
-
+const BodyWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  // height: 56px;
+  // padding: 12px 4px 4px 16px;
+  padding-top: 100px;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-color: white;
+  color: black;
+`;
+const TitleWrapper = styled.div`
+  text-align: center;
+  background-color: white;
+  color: black;
+  font-size: 60px;
+  font-weight: 600;
+`;
+const Content = styled.div`
+  text-align: center;
+  background-color: white;
+  color: rgb(194, 139, 0);
+  font-size: 60px;
+  font-weight: 600;
+`;
 const LogoWrapper = styled.div`
   .MuiSvgIcon-root {
     color: #e60023;
@@ -144,8 +177,10 @@ const FollowingButton = styled.div`
 
 const TextWrapper = styled.div`
   flex: 1;
+  font-weight: 700;
 `;
 const LogoText = styled.div`
-  color: rgb(230, 0, 35);
+  color: #e60023;
   font-weight: bold;
+  font-size: 20px;
 `;
