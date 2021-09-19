@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import Mainboard from "./components/Mainboard";
 import unsplash from "./api/unsplash";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import LoginPage from "./components/LoginPage";
+import HomePage from "./components/HomePage";
 
 function App() {
   const [pins, setNewPins] = useState([]);
@@ -57,7 +57,7 @@ function App() {
       <Router>
         <Switch>
           <Route exact path="/">
-            <LoginPage />
+            <HomePage />
           </Route>
           <Route exact path="/home">
             <Header onSubmit={onSearchSubmit} />

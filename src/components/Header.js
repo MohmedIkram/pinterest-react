@@ -24,16 +24,6 @@ function Header(props) {
           <PinterestIcon />
         </IconButton>
       </LogoWrapper>
-      <HomePageButton>
-        <Link to="/">
-          <a>Homepage</a>
-        </Link>
-      </HomePageButton>
-      <FollowingButton>
-        <Link to="/">
-          <a>Following</a>
-        </Link>
-      </FollowingButton>
       <SearchWrapper>
         <SearchBarWrapper>
           <IconButton>

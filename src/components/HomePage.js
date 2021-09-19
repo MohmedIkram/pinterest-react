@@ -2,16 +2,13 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import IconButton from "@material-ui/core/IconButton";
 import PinterestIcon from "@material-ui/icons/Pinterest";
-import { Link } from "react-router-dom";
-import Mainboard from "./Mainboard";
 import unsplash from "../api/unsplash";
-function LoginPage(props) {
-  const [input, setInput] = useState("");
+import "./LoginAndSignUpPage/PopUp.css";
+import Mainboard from "./Mainboard";
+import Login from "./LoginAndSignUpPage/Login";
 
-  const onSearchSubmit = (e) => {
-    e.preventDefault();
-    props.onSubmit(input);
-  };
+function HomePage({ handleLoginClick }) {
+  const [input, setInput] = useState("");
 
   const [pins, setNewPins] = useState([]);
 
@@ -43,6 +40,16 @@ function LoginPage(props) {
     });
   };
 
+  const handleClick = () => {
+    console.log("hello");
+  };
+
+  const [modal, setModal] = useState(false);
+
+  const toggleModal = () => {
+    setModal(!modal);
+  };
+
   useEffect(() => {
     getNewPins();
   }, []);
@@ -70,17 +77,14 @@ function LoginPage(props) {
             <li>Press</li>
           </ul>
         </TextWrapper>
-        <HomePageButton>
-          <Link to="/">
-            <a>Login</a>
-          </Link>
+        <HomePageButton onClick={toggleModal}>
+          <a>Login</a>
         </HomePageButton>
-        <FollowingButton>
-          <Link to="/">
-            <a>Sign-Up</a>
-          </Link>
+        <FollowingButton onClick={toggleModal}>
+          <a>Sign-Up</a>
         </FollowingButton>
       </Wrapper>
+      {modal && <Login toggleModal={toggleModal} />}
       <TitleWrapper>
         Get your next
         <Content>chai time snacks idea</Content>
@@ -91,7 +95,7 @@ function LoginPage(props) {
     </>
   );
 }
-export default LoginPage;
+export default HomePage;
 
 const Wrapper = styled.div`
   display: flex;
