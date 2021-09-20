@@ -3,9 +3,10 @@ import styled from "styled-components";
 import IconButton from "@material-ui/core/IconButton";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import unsplash from "../api/unsplash";
-import "./LoginAndSignUpPage/PopUp.css";
+// import "./PopUp.css";
 import Mainboard from "./Mainboard";
 import Login from "./LoginAndSignUpPage/Login";
+import SignUp from "./LoginAndSignUpPage/SignUp";
 
 function HomePage({ handleLoginClick }) {
   const [input, setInput] = useState("");
@@ -45,9 +46,14 @@ function HomePage({ handleLoginClick }) {
   };
 
   const [modal, setModal] = useState(false);
+  const [SiginUpModal, setSiginUpModal] = useState(false);
 
   const toggleModal = () => {
     setModal(!modal);
+  };
+
+  const toggleSiginUpModal = () => {
+    setSiginUpModal(!SiginUpModal);
   };
 
   useEffect(() => {
@@ -80,11 +86,17 @@ function HomePage({ handleLoginClick }) {
         <HomePageButton onClick={toggleModal}>
           <a>Login</a>
         </HomePageButton>
-        <FollowingButton onClick={toggleModal}>
+        <FollowingButton onClick={toggleSiginUpModal}>
           <a>Sign-Up</a>
         </FollowingButton>
+
+        {/* LoginPop page  */}
+
+        {modal && <Login toggleModal={toggleModal} />}
+        {/* SignUpPopUp page */}
+
+        {SiginUpModal && <SignUp toggleSiginUpModal={toggleSiginUpModal} />}
       </Wrapper>
-      {modal && <Login toggleModal={toggleModal} />}
       <TitleWrapper>
         Get your next
         <Content>chai time snacks idea</Content>

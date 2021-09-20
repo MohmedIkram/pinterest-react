@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
+/** import from materail ui */
 import IconButton from "@material-ui/core/IconButton";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import SearchIcon from "@material-ui/icons/Search";
@@ -7,7 +10,6 @@ import NotificationsIcon from "@material-ui/icons/Notifications";
 import FaceIcon from "@material-ui/icons/Face";
 import TextsmsIcon from "@material-ui/icons/Textsms";
 import KeyboardArrowDownIcon from "@material-ui/icons/KeyboardArrowDown";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 function Header(props) {
   const [input, setInput] = useState("");

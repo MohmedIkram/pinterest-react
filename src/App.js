@@ -1,9 +1,9 @@
 import "./App.css";
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import unsplash from "./api/unsplash";
 import Header from "./components/Header";
 import Mainboard from "./components/Mainboard";
-import unsplash from "./api/unsplash";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import HomePage from "./components/HomePage";
 
 function App() {
