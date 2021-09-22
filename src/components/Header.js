@@ -26,6 +26,12 @@ function Header(props) {
           <PinterestIcon />
         </IconButton>
       </LogoWrapper>
+      <HomePageButton>
+        <a>Home</a>
+      </HomePageButton>
+      <TodayButton>
+        <a>Today</a>
+      </TodayButton>
       <SearchWrapper>
         <SearchBarWrapper>
           <IconButton>
@@ -92,7 +98,7 @@ const HomePageButton = styled.div`
   }
 `;
 
-const FollowingButton = styled.div`
+const TodayButton = styled.div`
   display: flex;
   height: 48px;
   min-width: 123px;

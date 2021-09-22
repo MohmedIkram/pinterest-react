@@ -6,7 +6,6 @@
 .pin__container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   box-sizing: border-box;
   cursor: pointer;
   width: 236px;
@@ -26,5 +25,79 @@
   width: 100%;
   height: auto;
   transition: 0.5s ease;
+  cursor: zoom-in;
   backface-visibility: hidden;
+}
+
+/* three dot button */
+.RoundButton {
+  position: relative;
+  opacity: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  outline: none;
+  transition: opacity 0.35s ease;
+}
+
+.pin__container .RoundButton {
+  position: relative;
+  left: 80%;
+  bottom: 110%;
+}
+
+.pin__container:hover .RoundButton {
+  opacity: 1;
+}
+
+.pin__container .ButtonUpload {
+  position: relative;
+  left: 50%;
+  bottom: 110%;
+}
+
+/* Upload Button */
+
+.ButtonUpload {
+  position: relative;
+  opacity: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  outline: none;
+  transition: opacity 0.35s ease;
+}
+
+.pin__container:hover .ButtonUpload {
+  opacity: 1;
+}
+
+/* Save button */
+
+a {
+  text-decoration: none;
+  color: white;
+  font-weight: 700;
+}
+
+.pin__container .TopButton {
+  position: relative;
+  left: 60%;
+  top: 60px;
+}
+
+.TopButton {
+  height: 48px;
+  width: 80px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 24px;
+  cursor: pointer;
+  background-color: #e60023;
+  transition: opacity 0.35s ease;
+  opacity: 0;
+}
+
+.pin__container:hover .TopButton {
+  opacity: 1;
 }
