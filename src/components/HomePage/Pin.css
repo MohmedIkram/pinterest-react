@@ -42,8 +42,8 @@
 
 .pin__container .RoundButton {
   position: relative;
-  left: 80%;
-  bottom: 110%;
+  left: 100%;
+  bottom: 120%;
 }
 
 .pin__container:hover .RoundButton {
@@ -52,8 +52,8 @@
 
 .pin__container .ButtonUpload {
   position: relative;
-  left: 50%;
-  bottom: 110%;
+  left: 110%;
+  bottom: 120%;
 }
 
 /* Upload Button */
@@ -82,7 +82,7 @@ a {
 
 .pin__container .TopButton {
   position: relative;
-  left: 60%;
+  left: 30%;
   top: 60px;
 }
 

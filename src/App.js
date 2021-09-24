@@ -1,10 +1,13 @@
-import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+/** local files import */
+import "./App.css";
 import unsplash from "./api/unsplash";
-import Header from "./components/Header";
-import Mainboard from "./components/Mainboard";
-import HomePage from "./components/HomePage";
+import Header from "./components/HomePage/Header";
+import Mainboard from "./components/HomePage/Mainboard";
+import HomePage from "./components/LandingPage/HomePage";
+
 
 function App() {
   const [pins, setNewPins] = useState([]);

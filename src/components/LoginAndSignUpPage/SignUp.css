@@ -8,6 +8,6 @@
   cursor: pointer;
   background-color: white;
 }
-FollowingButton :hover {
+.FollowingButton :hover {
   background-color: #e1e1e1;
 }

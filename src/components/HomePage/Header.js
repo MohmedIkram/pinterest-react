@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 /** import from materail ui */
 import IconButton from "@material-ui/core/IconButton";
@@ -40,7 +39,6 @@ function Header(props) {
           <form>
             <input type="text" onChange={(e) => setInput(e.target.value)} />
             <button type="submit" onClick={onSearchSubmit}>
-              {/*CAN BE LEFT EMPTY*/}
             </button>
           </form>
         </SearchBarWrapper>
@@ -65,6 +63,11 @@ function Header(props) {
 export default Header;
 
 const Wrapper = styled.div`
+position: sticky;
+position: -webkit-sticky;
+top: 0;
+overflow: hidden;
+z-index: 10;
   display: flex;
   align-items: center;
   height: 56px;

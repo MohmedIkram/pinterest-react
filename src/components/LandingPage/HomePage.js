@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+
+/** import from materail ui */
 import IconButton from "@material-ui/core/IconButton";
 import PinterestIcon from "@material-ui/icons/Pinterest";
-import unsplash from "../api/unsplash";
-// import "./PopUp.css";
-import Mainboard from "./Mainboard";
-import Login from "./LoginAndSignUpPage/Login";
-import SignUp from "./LoginAndSignUpPage/SignUp";
+
+/** local files import */
+import unsplash from "../../api/unsplash";
+import Login from "../LoginAndSignUpPage/Login";
+import SignUp from "../LoginAndSignUpPage/SignUp";
+import HomePageContent from "./HomePageContent";
 
 function HomePage({ handleLoginClick }) {
   const [input, setInput] = useState("");
@@ -102,7 +105,8 @@ function HomePage({ handleLoginClick }) {
         <Content>chai time snacks idea</Content>
       </TitleWrapper>
       <BodyWrapper>
-        <Mainboard pins={pins} />
+        {/* <Mainboard pins={pins} /> */}
+        <HomePageContent pins={pins} />
       </BodyWrapper>
     </>
   );
@@ -118,6 +122,7 @@ const Wrapper = styled.div`
   color: black;
 `;
 const BodyWrapper = styled.div`
+
   display: flex;
   align-items: center;
   // height: 56px;

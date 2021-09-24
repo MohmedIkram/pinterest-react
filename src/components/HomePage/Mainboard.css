@@ -8,9 +8,39 @@
 
 .mainboard__container {
   background-color: white;
-  column-gap: 10px;
+  column-gap: 1px;
   margin: 0 auto;
   height: 100%;
+}
+
+.float{
+	position:fixed;
+	width:60px;
+	height:60px;
+	bottom:40px;
+	right:40px;
+	background-color:#FFF;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+.floattwo{
+  position:fixed;
+	width:60px;
+	height:60px;
+	bottom:110px;
+	right:40px;
+	background-color:#FFF;
+	color:#FFF;
+	border-radius:50px;
+	text-align:center;
+	box-shadow: 2px 2px 3px #999;
+}
+.my-float{
+	margin-top:25%;
+  width:30px;
+	height:30px;
 }
 
 @media (min-width: 0px) and (max-width: 755px) {

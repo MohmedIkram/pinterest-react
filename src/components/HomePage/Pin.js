@@ -1,7 +1,9 @@
 import React from "react";
+
+/** local files import */
 import "./Pin.css";
-import Dots from "../assets/Dots.png";
-import Upload from "../assets/Upload.png";
+import Dots from "../../assets/Dots.png";
+import Upload from "../../assets/Upload.png";
 
 function Pin(props) {
   let { urls } = props;
