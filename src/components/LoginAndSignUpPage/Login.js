@@ -31,7 +31,7 @@ function Login({ toggleModal }) {
       password,
     };
     axios
-      .post("http://localhost:5000/users/login", myData)
+      .post("https://pinterest-guvi.herokuapp.com/users/login", myData)
       .then((response) => {
         // return  response;
         localStorage.setItem("auth", JSON.stringify(response.data));

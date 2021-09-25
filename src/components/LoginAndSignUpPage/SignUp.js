@@ -32,7 +32,7 @@ function SignUp({ toggleSiginUpModal }) {
       password,
       age,
     };
-    axios.post("http://localhost:5000/users/signup", myData);
+    axios.post("https://pinterest-guvi.herokuapp.com/users/signup", myData);
     History.push("/");
   };
 
