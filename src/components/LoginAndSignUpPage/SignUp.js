@@ -26,7 +26,8 @@ function SignUp({ toggleSiginUpModal }) {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
 
-  const handleLogin = () => {
+  const handleLogin = (e) => {
+    e.preventDefault();
     const myData = {
       email,
       name,
@@ -36,10 +37,11 @@ function SignUp({ toggleSiginUpModal }) {
       .then((response) => {
         // return  response;
         History.push("/");
+        console.log("SignUp successfully")
       })
       .catch((error) => {
         //return  error;
-        console.log("error")
+        console.log("SignUp failed")
         History.push(`/`);
       });
   };
