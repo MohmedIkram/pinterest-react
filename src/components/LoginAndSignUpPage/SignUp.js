@@ -24,16 +24,24 @@ function SignUp({ toggleSiginUpModal }) {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [age, setAge] = useState("");
+  const [name, setName] = useState("");
 
   const handleLogin = () => {
     const myData = {
       email,
       password,
-      age,
+      name,
     };
-    axios.post("https://pinterest-guvi.herokuapp.com/users/signup", myData);
-    History.push("/");
+    axios.post("https://pinterest-guvi.herokuapp.com/users/signup", myData)
+      .then((response) => {
+        // return  response;
+        History.push("/");
+      })
+      .catch((error) => {
+        //return  error;
+        console.log("error")
+        History.push(`/`);
+      });
   };
 
   return (
@@ -110,13 +118,13 @@ function SignUp({ toggleSiginUpModal }) {
             <TextField
               margin="normal"
               fullWidth
-              name="age"
-              label="Age"
+              name="name"
+              label="name"
               type="text"
-              id="age"
+              id="name"
 
               style={{ width: "268px", height: "48px" }}
-              onChange={(e) => setAge(e.target.value)}
+              onChange={(e) => setName(e.target.value)}
             />
           </Grid>
           <Grid item xs={12}>
