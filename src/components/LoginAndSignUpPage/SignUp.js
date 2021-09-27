@@ -29,8 +29,8 @@ function SignUp({ toggleSiginUpModal }) {
   const handleLogin = () => {
     const myData = {
       email,
-      password,
       name,
+      password
     };
     axios.post("https://pinterest-guvi.herokuapp.com/users/signup", myData)
       .then((response) => {
