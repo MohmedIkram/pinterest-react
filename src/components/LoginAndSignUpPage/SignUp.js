@@ -103,6 +103,18 @@ function SignUp({ toggleSiginUpModal }) {
           <Grid item xs={12}>
             <TextField
               margin="normal"
+              fullWidth
+              name="name"
+              label="name"
+              type="text"
+              id="name"
+              style={{ width: "268px", height: "48px" }}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              margin="normal"
               required
               fullWidth
               name="password"
@@ -114,19 +126,7 @@ function SignUp({ toggleSiginUpModal }) {
               onChange={(e) => setPassword(e.target.value)}
             />
           </Grid>
-          <Grid item xs={12}>
-            <TextField
-              margin="normal"
-              fullWidth
-              name="name"
-              label="name"
-              type="text"
-              id="name"
 
-              style={{ width: "268px", height: "48px" }}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Grid>
           <Grid item xs={12}>
             <Button
               type="submit"
