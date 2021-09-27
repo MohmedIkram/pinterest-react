@@ -36,7 +36,7 @@ function SignUp({ toggleSiginUpModal }) {
     axios.post("https://pinterest-guvi.herokuapp.com/users/signup", myData)
       .then((response) => {
         // return  response;
-        History.push("/");
+        History.push(`/`);
         console.log("SignUp successfully")
       })
       .catch((error) => {
