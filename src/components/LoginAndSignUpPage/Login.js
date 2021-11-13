@@ -20,9 +20,6 @@ import { GoogleLogin, GoogleLogout } from 'react-google-login';
 import "./PopUp.css";
 import google from "../../assets/google.png"
 
-import dotenv from "dotenv";
-dotenv.config();
-
 function Login({ toggleModal }) {
   let history = useHistory();
 
@@ -48,8 +45,8 @@ function Login({ toggleModal }) {
         history.push(`/`);
       });
   };
-  const clientId = process.env.GoogleOauthClientID;
-
+  const clientId = process.env.REACT_APP_CLIENT_KEY;
+  console.log(process.env)
   const [showloginButton, setShowloginButton] = useState(true);
   const [showlogoutButton, setShowlogoutButton] = useState(false);
   const onLoginSuccess = (res) => {
@@ -162,9 +159,9 @@ function Login({ toggleModal }) {
             <GoogleLogin
               clientId={clientId}
               render={renderProps => (
-                // <button onClick={renderProps.onClick} disabled={renderProps.disabled}>This is my custom Google button</button>
                 <Button
-                  onClick={renderProps.onClick} disabled={renderProps.disabled}
+                  onClick={renderProps.onClick}
+                  disabled={renderProps.disabled}
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
@@ -185,7 +182,6 @@ function Login({ toggleModal }) {
               onFailure={onLoginFailure}
               cookiePolicy={'single_host_origin'}
             />
-
           </Grid>
           <Grid item xs={12}><Typography style={{ fontSize: "11px" }} >By continuing, you agree to Pinterest's Terms of <br />Service and acknowledge that you've read our Privacy<br /> Policy
           </Typography></Grid>
