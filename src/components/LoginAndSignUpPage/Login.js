@@ -14,9 +14,14 @@ import Typography from "@mui/material/Typography";
 import PinterestIcon from "@material-ui/icons/Pinterest";
 import { Facebook } from "@material-ui/icons";
 
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
+
 /** local files import */
 import "./PopUp.css";
 import google from "../../assets/google.png"
+
+import dotenv from "dotenv";
+dotenv.config();
 
 function Login({ toggleModal }) {
   let history = useHistory();
@@ -42,6 +47,26 @@ function Login({ toggleModal }) {
         //return  error;
         history.push(`/`);
       });
+  };
+  const clientId = process.env.GoogleOauthClientID;
+
+  const [showloginButton, setShowloginButton] = useState(true);
+  const [showlogoutButton, setShowlogoutButton] = useState(false);
+  const onLoginSuccess = (res) => {
+    console.log('Login Success:', res.profileObj);
+    setShowloginButton(false);
+    setShowlogoutButton(true);
+  };
+
+  const onLoginFailure = (res) => {
+    console.log('Login Failed:', res);
+  };
+
+  const onSignoutSuccess = () => {
+    alert("You have been logged out successfully");
+    console.clear();
+    setShowloginButton(true);
+    setShowlogoutButton(false);
   };
   return (
     <div className="modal" style={{ textAlign: "center", borderRadius: "25px" }}>
@@ -134,21 +159,33 @@ function Login({ toggleModal }) {
             </Button>
           </Grid>
           <Grid item xs={12}>
-            <Button
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-              style={{
-                width: "268px",
-                height: "48px",
-                backgroundColor: "white",
-                color: "black",
-                borderRadius: "25px",
-              }}
-            >
-              Continue with Google
-              <img src={google} alt="google" style={{ height: "18px", width: "18px" }}></img>
-            </Button>
+            <GoogleLogin
+              clientId={clientId}
+              render={renderProps => (
+                // <button onClick={renderProps.onClick} disabled={renderProps.disabled}>This is my custom Google button</button>
+                <Button
+                  onClick={renderProps.onClick} disabled={renderProps.disabled}
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                  style={{
+                    width: "268px",
+                    height: "48px",
+                    backgroundColor: "white",
+                    color: "black",
+                    borderRadius: "25px",
+                  }}
+                >
+                  Continue with Google
+                  <img src={google} alt="google" style={{ height: "18px", width: "18px" }}></img>
+                </Button>
+              )}
+              buttonText="Login"
+              onSuccess={onLoginSuccess}
+              onFailure={onLoginFailure}
+              cookiePolicy={'single_host_origin'}
+            />
+
           </Grid>
           <Grid item xs={12}><Typography style={{ fontSize: "11px" }} >By continuing, you agree to Pinterest's Terms of <br />Service and acknowledge that you've read our Privacy<br /> Policy
           </Typography></Grid>
