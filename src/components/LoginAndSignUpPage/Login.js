@@ -65,7 +65,7 @@ function Login({ toggleModal }) {
     }
     console.log(data)
     axios
-      .post("http://localhost:6000/users/GoogleLogin", data)
+      .post("https://pinterest-guvi.herokuapp.com/users/GoogleLogin", data)
       .then((response) => {
         // return  response;
         console.log(response)
