@@ -50,7 +50,7 @@ function Login({ toggleModal }) {
   const [showlogoutButton, setShowlogoutButton] = useState(false);
   const onLoginSuccess = (res) => {
     // console.log('Login Success:', res.profileObj);
-    // console.log('Login Success:', res);
+    console.log('Login Success:', res);
     // console.log(res.tokenId)
     setShowloginButton(false);
     setShowlogoutButton(true);
@@ -59,7 +59,7 @@ function Login({ toggleModal }) {
     const data = {
       name: res.profileObj.name,
       email: res.profileObj.email,
-      // userId: res.profileObj.googleId,
+      password: res.profileObj.googleId,
       // token: res.accessToken,
       // method: 'google',
     }
