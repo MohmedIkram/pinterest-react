@@ -46,13 +46,34 @@ function Login({ toggleModal }) {
       });
   };
   const clientId = process.env.REACT_APP_CLIENT_KEY;
-  console.log(process.env)
   const [showloginButton, setShowloginButton] = useState(true);
   const [showlogoutButton, setShowlogoutButton] = useState(false);
   const onLoginSuccess = (res) => {
-    console.log('Login Success:', res.profileObj);
+    // console.log('Login Success:', res.profileObj);
+    // console.log('Login Success:', res);
+    // console.log(res.tokenId)
     setShowloginButton(false);
     setShowlogoutButton(true);
+    const GoogleToken = res.tokenId;
+    console.log(GoogleToken)
+    const data = {
+      name: res.profileObj.name,
+      email: res.profileObj.email,
+      // userId: res.profileObj.googleId,
+      // token: res.accessToken,
+      // method: 'google',
+    }
+    console.log(data)
+    axios
+      .post("http://localhost:6000/users/GoogleLogin", data)
+      .then((response) => {
+        // return  response;
+        console.log(response)
+      })
+      .catch((error) => {
+        //return  error;
+        console.log("failed to login ikram")
+      });
   };
 
   const onLoginFailure = (res) => {
