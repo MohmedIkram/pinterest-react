@@ -47,25 +47,26 @@ function Login({ toggleModal }) {
   };
   const clientId = process.env.REACT_APP_CLIENT_KEY;
   const [showloginButton, setShowloginButton] = useState(true);
-  const [showlogoutButton, setShowlogoutButton] = useState(false);
-  const onLoginSuccess = (res) => {
-    // console.log('Login Success:', res.profileObj);
-    console.log('Login Success:', res);
-    // console.log(res.tokenId)
+
+
+  const onLoginSuccess = async (res) => {
+    console.log('Login Success:', res.profileObj);
+    console.log('Login Success:', res.tokenObj);
+    console.log(res.tokenId)
     setShowloginButton(false);
-    setShowlogoutButton(true);
-    const GoogleToken = res.tokenId;
-    console.log(GoogleToken)
+    // const googleId = res.tokenId;
+    // console.log(GoogleToken)
     const data = {
       name: res.profileObj.name,
       email: res.profileObj.email,
-      password: res.profileObj.googleId,
+      googleId: res.tokenId,
       // token: res.accessToken,
       // method: 'google',
     }
     console.log(data)
+
     axios
-      .post("https://pinterest-guvi.herokuapp.com/users/GoogleLogin", data)
+      .post("http://localhost:6000/users/GoogleLogin", data)
       .then((response) => {
         // return  response;
         console.log(response)
@@ -80,12 +81,6 @@ function Login({ toggleModal }) {
     console.log('Login Failed:', res);
   };
 
-  const onSignoutSuccess = () => {
-    alert("You have been logged out successfully");
-    console.clear();
-    setShowloginButton(true);
-    setShowlogoutButton(false);
-  };
   return (
     <div className="modal" style={{ textAlign: "center", borderRadius: "25px" }}>
       <div onClick={toggleModal} className="overlay"></div>
@@ -198,7 +193,7 @@ function Login({ toggleModal }) {
                   <img src={google} alt="google" style={{ height: "18px", width: "18px" }}></img>
                 </Button>
               )}
-              buttonText="Login"
+              // buttonText="Login"
               onSuccess={onLoginSuccess}
               onFailure={onLoginFailure}
               cookiePolicy={'single_host_origin'}
