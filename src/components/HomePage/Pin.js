@@ -12,7 +12,7 @@ function Pin(props) {
     <div className="pin">
       <div className="pin__container">
         <button type="button" className="TopButton">
-          <a>Save</a>
+          <a href={() => false}>Save</a>
         </button>
         <img src={urls?.regular} alt="pin" className="pinimg" />
         <div>

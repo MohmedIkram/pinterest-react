@@ -10,7 +10,7 @@ function HomePageContent(props) {
       <div className="mainboard__container">
         {pins.map((pin) => {
           let { urls } = pin;
-          return <HomePagePin urls={urls} />;
+          return <HomePagePin key={pin} urls={urls} />;
         })}
       </div>
     </div>

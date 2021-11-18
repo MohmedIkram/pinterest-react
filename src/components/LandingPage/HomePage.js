@@ -12,7 +12,7 @@ import SignUp from "../LoginAndSignUpPage/SignUp";
 import HomePageContent from "./HomePageContent";
 
 function HomePage({ handleLoginClick }) {
-  const [input, setInput] = useState("");
+  // const [input, setInput] = useState("");
 
   const [pins, setNewPins] = useState([]);
 

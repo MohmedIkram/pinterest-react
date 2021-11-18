@@ -14,19 +14,17 @@ function Mainboard(props) {
       <div className="mainboard__container">
         {pins.map((pin) => {
           let { urls } = pin;
-          return <Pin urls={urls} />;
+          return <Pin key={urls} urls={urls} />;
         })}
       </div>
       <div>
-        <a href="#" class="float">
-          <img src={questionmark} alt="questionmark" class="my-float"></img>
+        <a href="#" className="float">
+          <img src={questionmark} alt="questionmark" className="my-float"></img>
         </a>
-        <a href="#" class="floattwo">
-          <img src={plus} alt="plus" class="my-float"></img>
+        <a href="#" className="floattwo">
+          <img src={plus} alt="plus" className="my-float"></img>
         </a>
-
       </div>
-
     </div>
   );
 }

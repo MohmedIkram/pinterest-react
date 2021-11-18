@@ -70,6 +70,7 @@ function Login({ toggleModal }) {
       .then((response) => {
         // return  response;
         console.log(response)
+        history.push(`/home`);
       })
       .catch((error) => {
         //return  error;
