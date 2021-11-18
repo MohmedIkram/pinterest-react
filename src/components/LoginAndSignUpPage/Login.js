@@ -50,9 +50,9 @@ function Login({ toggleModal }) {
 
 
   const onLoginSuccess = async (res) => {
-    console.log('Login Success:', res.profileObj);
-    console.log('Login Success:', res.tokenObj);
-    console.log(res.tokenId)
+    // console.log('Login Success:', res.profileObj);
+    // console.log('Login Success:', res.tokenObj);
+    // console.log(res.tokenId)
     setShowloginButton(false);
     // const googleId = res.tokenId;
     // console.log(GoogleToken)
@@ -63,7 +63,7 @@ function Login({ toggleModal }) {
       // token: res.accessToken,
       // method: 'google',
     }
-    console.log(data)
+    // console.log(data)
 
     axios
       .post("http://localhost:6000/users/GoogleLogin", data)
